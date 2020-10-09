@@ -5,9 +5,67 @@
     <title></title>
   </head>
   <body>
-    <p>Hubert Marek</p>
-    <script type="text/javascript">
-      
+    <p id="akapit">Hubert Marek</p>
+
+    <script>
+      var colors = ["#f00", "#0f0", "#00f"];
+      var fonts = ["comic sans ms", "arial", "consolas"];
+      var sizes = ["30px", "31px", "32px"];
+      var r = 255;
+      var g = 0;
+      var b = 0;
+      var stages = ["greenUp", "redDown", "blueUp", "greenDown", "redUp", "blueDown"];
+      var stage = 0
+      var x = 0;
+
+
+      if(stages[stage] == "greenUp")
+      {
+        g++;
+        if(g == 255)
+        {
+          stage++;
+        }
+      }
+      if(stages[stage] == "redDown")
+      {
+        r--;
+        if(r == 255)
+        {
+          stage++;
+        }
+      }
+      if(stages[stage] == "blueUp")
+      {
+        b++;
+      }
+      if(stages[stage] == "greenDown")
+      {
+        g--;
+      }
+      if(stages[stage] == "regUp")
+      {
+        r++;
+      }
+      if(stages[stage] == "blueDown")
+      {
+        b--;
+      }
+
+      function ErGjeBe() {
+      	setTimeout(function() {
+      	if(x == 3)
+      	{
+      	   x = 0;
+      	}
+      	document.getElementById("akapit").style.color = colors[x];
+        document.getElementById("akapit").style.fontFamily = fonts[x];
+        document.getElementById("akapit").style.fontSize = sizes[x];
+      	x++;
+      	ErGjeBe();
+      }, 100)
+      }
+      ErGjeBe();
     </script>
   </body>
 </html>
